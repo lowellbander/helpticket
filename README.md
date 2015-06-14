@@ -1,7 +1,7 @@
 # helpticket
 
 ### todo
-- [ ] hello world locally
-- [ ] hello world remotely
+- [x] hello world locally
+- [x] hello world remotely
 - [ ] display open issues
 - [ ] add an issue
