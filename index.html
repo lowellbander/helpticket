@@ -46,8 +46,21 @@
                     );
                 else
                     return (
-                            <IssueList data={this.state.data}/>
+                            <div className="dashboard">
+                                <UserInfo></UserInfo>
+                                <IssueList data={this.state.data}></IssueList>
+                            </div>
                     );
+            }
+        });
+
+        var UserInfo = React.createClass({
+            render: function () {
+                return (
+                        <div className="userInfo">
+                            <h4>user info bruh</h4>
+                        </div>
+                );
             }
         });
 
