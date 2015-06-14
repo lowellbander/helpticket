@@ -49,6 +49,7 @@
                     return (
                             <div className="dashboard">
                                 <UserInfo></UserInfo>
+                                <IssueForm></IssueForm>
                                 <IssueList data={this.state.data}></IssueList>
                             </div>
                     );
@@ -110,6 +111,17 @@
                             <h2>{this.props.title}</h2>
                             <p>{this.props.children}</p>
                         </div>
+                );
+            }
+        });
+
+        var IssueForm = React.createClass({
+            render: function () {
+                return (
+                        <form className="issueForm">
+                            <input type="text" placeholder="What do you need help with?" ref="body"></input>
+                            <input type="submit" value="Post"></input>
+                        </form>
                 );
             }
         });
