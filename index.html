@@ -1,0 +1,24 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<head>
+    <title>React & Github</title>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/jsx">
+        var IssueList = React.createClass({
+            render: function () {
+                return (
+                        <h2>an IssueList</h2>
+                );
+            }
+        });
+
+        React.render(
+                <IssueList />,
+                document.getElementById('content')
+        );
+    </script>
+</body>
