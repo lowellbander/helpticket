@@ -73,12 +73,13 @@
 
             },
             getInitialState: function () {
-                return {data: {name: ""}};
+                return {data: {name: "", avatar_url:""}};
             },
             render: function () {
                 return (
                         <div className="userInfo">
                             <p>Hello, {this.state.data.name}.</p>
+                            <img src={this.state.data.avatar_url} />
                         </div>
                 );
             }
@@ -162,7 +163,11 @@
         div {
             border: 1px solid black;
             padding: 5px;
+            margin: 5px;
             display: inline-block;
+        }
+        img {
+            width: 100px;
         }
     </style>
 </body>
