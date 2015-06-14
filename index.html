@@ -97,7 +97,7 @@
 
                 return (
                     <div className="issueList">
-                        <h1>currently open issues:</h1>
+                        <h1>currently open issues</h1>
                         {issueNodes}
                     </div>
                 );
@@ -141,11 +141,14 @@
             },
             render: function () {
                 return (
-                        <form className="issueForm" onSubmit={this.handleSubmit}>
-                            <input type="text" placeholder="Title" ref="title"></input>
-                            <input type="text" placeholder="Body" ref="body"></input>
-                            <input type="submit" value="Post"></input>
-                        </form>
+                        <div>
+                            <h3>Submit a new help ticket</h3>
+                            <form className="issueForm" onSubmit={this.handleSubmit}>
+                                <input type="text" placeholder="Title" ref="title"></input>
+                                <input type="text" placeholder="Body" ref="body"></input>
+                                <input type="submit" value="Post"></input>
+                            </form>
+                        </div>
                 );
             }
         });
@@ -155,4 +158,11 @@
                 document.getElementById('content')
         );
     </script>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 5px;
+            display: inline-block;
+        }
+    </style>
 </body>
