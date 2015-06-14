@@ -40,9 +40,14 @@
                 return {data: []};
             },
             render: function () {
-                return (
-                        <IssueList data={this.state.data}/>
-                );
+                if (!token)
+                    return (
+                            <a href="http://helpticket-auth.herokuapp.com/login">Login</a>
+                    );
+                else
+                    return (
+                            <IssueList data={this.state.data}/>
+                    );
             }
         });
 
@@ -57,17 +62,12 @@
                     );
                 });
 
-                if (token)
-                    return (
-                        <div className="issueList">
-                            <h1>currently open issues:</h1>
-                            {issueNodes}
-                        </div>
-                    );
-                else
-                    return (
-                            <a href="http://helpticket-auth.herokuapp.com/login">Login</a>
-                    );
+                return (
+                    <div className="issueList">
+                        <h1>currently open issues:</h1>
+                        {issueNodes}
+                    </div>
+                );
             }
         });
 
