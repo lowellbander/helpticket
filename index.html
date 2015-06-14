@@ -17,7 +17,7 @@
         var token = getURLParameter('access_token');
         var repo_URL='https://api.github.com/repos/lowellbander/helpme/issues?access_token=' + token;
 
-        var IssueList = React.createClass({
+        var Dashboard = React.createClass({
             loadIssues: function () {
                 $.ajax({
                     url: this.props.url,
@@ -40,8 +40,16 @@
                 return {data: []};
             },
             render: function () {
+                return (
+                        <IssueList data={this.state.data}/>
+                );
+            }
+        });
 
-                var issueNodes = this.state.data.map(function (issue) {
+        var IssueList = React.createClass({
+            render: function () {
+
+                var issueNodes = this.props.data.map(function (issue) {
                     return (
                             <Issue title={issue.title}>
                                 {issue.body}
@@ -75,7 +83,7 @@
         });
 
         React.render(
-                <IssueList url={repo_URL}/>,
+                <Dashboard url={repo_URL}/>,
                 document.getElementById('content')
         );
     </script>
