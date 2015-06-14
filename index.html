@@ -36,8 +36,8 @@
 
                 var issueNodes = this.state.data.map(function (issue) {
                     return (
-                            <Issue title="theTitle">
-                                the text
+                            <Issue title={issue.title}>
+                                {issue.body}
                             </Issue>
                     );
                 });
@@ -57,6 +57,7 @@
                 return (
                         <div className="issue">
                             <h2>{this.props.title}</h2>
+                            <p>{this.props.children}</p>
                         </div>
                 );
             }
