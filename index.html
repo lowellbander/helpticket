@@ -4,20 +4,66 @@
     <title>React & Github</title>
     <script src="https://fb.me/react-0.13.3.js"></script>
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </head>
 <body>
     <div id="content"></div>
     <script type="text/jsx">
+
         var IssueList = React.createClass({
+            loadIssues: function () {
+                $.ajax({
+                    url: this.props.url,
+                    dataType: 'json',
+                    type: 'GET',
+                    success: function (data) {
+                        console.log(data);
+                        this.setState({data: data});
+                    }.bind(this),
+                    error: function(xhr, status, err) {
+                        console.error(this.props.url, status, err.toString());
+                    }.bind(this)
+                });
+            },
+            componentDidMount: function () {
+                this.loadIssues();
+                setInterval(this.loadIssues, 2000)
+            },
+            getInitialState: function () {
+                return {data: []};
+            },
             render: function () {
+
+                var issueNodes = this.state.data.map(function (issue) {
+                    return (
+                            <Issue title="theTitle">
+                                the text
+                            </Issue>
+                    );
+                });
+
                 return (
-                        <h2>an IssueList</h2>
+                        <div className="issueList">
+                            <h1>the issuelist</h1>
+                            <Issue></Issue>
+                            {issueNodes}
+                        </div>
+                );
+            }
+        });
+
+        var Issue = React.createClass({
+            render: function() {
+                return (
+                        <div className="issue">
+                            <h2>{this.props.title}</h2>
+                        </div>
                 );
             }
         });
 
         React.render(
-                <IssueList />,
+                <IssueList url='https://api.github.com/repos/lowellbander/helpme/issues'/>,
                 document.getElementById('content')
         );
     </script>
