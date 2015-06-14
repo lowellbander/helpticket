@@ -1,0 +1,22 @@
+{
+  "name": "helpticket",
+  "version": "1.0.0",
+  "description": "### todo - [ ] hello world locally - [ ] hello world remotely - [ ] display open issues - [ ] add an issue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lowellbander/helpticket.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lowellbander/helpticket/issues"
+  },
+  "homepage": "https://github.com/lowellbander/helpticket#readme",
+  "dependencies": {
+    "express": "^4.12.4"
+  }
+}
